@@ -21,3 +21,32 @@ Lista de tarefas em HTML, CSS E JAVASCRIPT
 </html>
 
 
+CSS
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+.container {
+  background: #e3dede;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+.done {
+  text-decoration: line-through;
+  color: gray;
+}
+
