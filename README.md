@@ -50,3 +50,46 @@ li {
   color: gray;
 }
 
+
+JAVASCRIPT
+
+function addTask() {
+  const input = document.getElementById('task-input');
+  const taskText = input.value.trim();
+  if (taskText === '') return;
+
+  const li = document.createElement('li');
+  li.innerHTML = `
+    <span onclick="toggleDone(this)">${taskText}</span>
+    <button onclick="removeTask(this)">🗑️</button>
+  `;
+
+  document.getElementById('task-list').appendChild(li);
+  input.value = '';
+  saveTasks();
+}
+
+function toggleDone(element) {
+  element.classList.toggle('done');
+  saveTasks();
+}
+
+function removeTask(button) {
+  button.parentElement.remove();
+  saveTasks();
+}
+
+function saveTasks() {
+  const list = document.getElementById('task-list').innerHTML;
+  localStorage.setItem('tasks', list);
+}
+
+function loadTasks() {
+  const saved = localStorage.getItem('tasks');
+  if (saved) {
+    document.getElementById('task-list').innerHTML = saved;
+  }
+}
+
+loadTasks();
+
